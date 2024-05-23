@@ -48,7 +48,7 @@ set(OPTIMISATION Og)
 set(DEBUG "g3")
 
 set(WARN_FLAGS          "-Wall -Wextra -Wpedantic -pedantic -Wmissing-include-dirs -Wconversion -Wfatal-errors")
-set(CMAKE_COMMON_FLAGS  "${MCPU} ${MFLOAT_ABI} -${ARM_ISA} -D${TARGET} -DUSE_HAL_DRIVER -${OPTIMISATION} -${DEBUG} ${WARN_FLAGS} -Og -v -ffunction-sections -fdata-sections -fstack-usage -fcyclomatic-complexity --specs=nano.specs")
+set(CMAKE_COMMON_FLAGS  "${MCPU} ${MFLOAT_ABI} -${ARM_ISA} -D${TARGET} -DUSE_HAL_DRIVER -${OPTIMISATION} -${DEBUG} ${WARN_FLAGS} -Og -v -ffunction-sections -fdata-sections -fstack-usage --specs=nano.specs")
 set(CMAKE_ASM_FLAGS     "${MCPU} ${MFLOAT_ABI} -x assembler-with-cpp --specs=nano.specs -mthumb")
 set(CMAKE_C_FLAGS       "${CMAKE_COMMON_FLAGS}")
 set(CMAKE_CXX_FLAGS     "${CMAKE_COMMON_FLAGS} -std=gnu++17 -fno-rtti -fno-use-cxa-atexit -fno-exceptions -Wno-volatile")
