@@ -1,0 +1,29 @@
+name: Build binaries
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+env:
+  BUILD_TYPE: Release
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Install packages
+      run: sudo apt install gcc-arm-none-eabi
+
+    - name: Configure CMake
+      run: 
+        mkdir biuld
+        cd build
+        cmake -G"Unix Makefiles" ..
+
+    - name: Build
+      run: cmake --build .
