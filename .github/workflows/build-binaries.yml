@@ -29,4 +29,6 @@ jobs:
         cmake -G"Unix Makefiles" ..
 
     - name: Build
-      run: cmake --build .
+      run: |
+        cd ./build
+        cmake --build .
