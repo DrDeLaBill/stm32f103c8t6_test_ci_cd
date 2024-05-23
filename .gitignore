@@ -38,6 +38,11 @@ Release*
 *Debug.launch
 *Release.launch
 *Backup*
-*.o
 build*
 .vscode*
+*.su
+*.obj
+*.mk
+*.map
+*.bin
+*.hex
