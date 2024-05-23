@@ -24,7 +24,7 @@ jobs:
 
     - name: Configure CMake
       run: |
-        mkdir ./biuld
+        mkdir ./build
         cd ./build
         cmake -G"Unix Makefiles" ..
 
