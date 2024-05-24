@@ -32,3 +32,15 @@ jobs:
       run: |
         cd ./build
         cmake --build .
+    - name: Create Release
+      uses: actions/create-release@v1
+      id: create_release
+      with:
+        draft: false
+        prerelease: false
+        release_name: "Build ${{ GITHUB_SHA }}"
+        tag_name: ${{ github.ref }}
+        body_path: CHANGELOG.md
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
+      
