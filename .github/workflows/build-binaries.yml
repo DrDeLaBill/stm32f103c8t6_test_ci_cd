@@ -34,18 +34,18 @@ jobs:
     - name: Create Release
       uses: actions/create-release@v1
       id: create_release
+      env:
+        GITHUB_TOKEN: ${{ secrets.TOKEN }}
       with:
         draft: false
         prerelease: false
         release_name: "${{ github.ref }}-${{ env.GITHUB_SHA }}"
         tag_name: ${{ github.ref }}
         body_path: CHANGELOG.md
-      env:
-        GITHUB_TOKEN: ${{ secrets.TOKEN }}
     - name: Upload STMCMAKE artifact
       uses: actions/upload-release-asset@v1
       env:
-        GITHUB_TOKEN: ${{ github.TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
         asset_path: ./build/STMCMAKE.bin
