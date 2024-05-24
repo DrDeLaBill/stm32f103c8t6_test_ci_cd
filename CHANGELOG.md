@@ -1,0 +1,2 @@
+- Added CHANGELOG.md
+- Added cmake version message

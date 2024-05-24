@@ -30,6 +30,7 @@ ENDMACRO()
 
 # Название проекта
 project(STMCMAKE VERSION 0.1.0)
+message(STATUS "Project version: ${CMAKE_PROJECT_VERSION}")
 message(STATUS "Building ${PROJECT_NAME}")
 message(STATUS "C FLAGS:   ${CMAKE_C_FLAGS}")
 message(STATUS "C++ FLAGS: ${CMAKE_CXX_FLAGS}")
