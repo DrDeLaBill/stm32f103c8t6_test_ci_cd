@@ -39,7 +39,7 @@ jobs:
       with:
         draft: false
         prerelease: false
-        release_name: "${{ github.ref }}-${{ GITHUB_SHA }}"
+        release_name: "${{ github.ref }}-${GITHUB_SHA}"
         tag_name: ${{ github.ref }}
         body_path: CHANGELOG.md
     - name: Upload STMCMAKE artifact
