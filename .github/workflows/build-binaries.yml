@@ -39,7 +39,7 @@ jobs:
         draft: false
         prerelease: false
         release_name: "Build ${{ env.GITHUB_SHA }}"
-        tag_name: ${{ env.GITHUB_SHA }}
+        tag_name: "${{ env.GITHUB_SHA }}"
         body_path: CHANGELOG.md
       env:
         GITHUB_TOKEN: ${{ secrets.TOKEN }}
