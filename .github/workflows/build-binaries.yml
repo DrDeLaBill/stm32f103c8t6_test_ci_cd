@@ -21,11 +21,11 @@ jobs:
         git submodule init
         git submodule update
 
-    - name: Set short git commit SHA
-      id: vars
-      run: |
-        calculatedSha=$(git rev-parse --short ${{ github.sha }})
-        echo "COMMIT_SHORT_SHA=$calculatedSha" >> $GITHUB_ENV
+    # - name: Set short git commit SHA
+    #   id: vars
+    #   run: |
+    #     calculatedSha=$(git rev-parse --short ${{ github.sha }})
+    #     echo "COMMIT_SHORT_SHA=$calculatedSha" >> $GITHUB_ENV
 
     - name: Configure CMake
       run: |
@@ -45,7 +45,7 @@ jobs:
       with:
         draft: false
         prerelease: false
-        release_name: ${{ github.ref }}-${{ steps.vars.outputs.sha_short }}
+        release_name: ${{ github.ref }}-123 # ${{ steps.vars.outputs.sha_short }}
         tag_name: ${{ github.ref }}
         body_path: CHANGELOG.md
     - name: Upload STMCMAKE artifact
