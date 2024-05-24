@@ -38,7 +38,7 @@ jobs:
       with:
         draft: false
         prerelease: false
-        release_name: "Build ${{ GITHUB_SHA }}"
+        release_name: "Build ${{ env.GITHUB_SHA }}"
         tag_name: ${{ github.ref }}
         body_path: CHANGELOG.md
       env:
