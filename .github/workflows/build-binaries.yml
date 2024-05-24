@@ -15,6 +15,12 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
+    - name: Set short git commit SHA
+      id: vars
+      run: |
+        calculatedSha=$(git rev-parse --short ${{ github.sha }})
+        echo "COMMIT_SHORT_SHA=$calculatedSha" >> $GITHUB_ENV
+
     - name: Install packages
       run: |
         sudo apt install gcc-arm-none-eabi
@@ -39,7 +45,7 @@ jobs:
       with:
         draft: false
         prerelease: false
-        release_name: "${{ github.ref }}-${{ github.short_sha }}"
+        release_name: ${{ github.ref }}-${{ steps.vars.outputs.sha_short }}
         tag_name: ${{ github.ref }}
         body_path: CHANGELOG.md
     - name: Upload STMCMAKE artifact
